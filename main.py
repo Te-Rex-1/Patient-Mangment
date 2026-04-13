@@ -1,19 +1,10 @@
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI,Path,HTTPException,Query
 from baseClass import Patient,Patient_Update
-import json
-
+from utility import load_data,save_data
 
 app=FastAPI()
 
-def load_data():
-    with open('patients.json', 'r') as f:
-        data = json.load(f)
-
-    return data
-def save_data(data):
-    with open('patients.json','w') as f:
-        json.dump(data,f)
 
 @app.get("/")
 def hello():
